@@ -1,5 +1,3 @@
-let my_key = config.my_key;
-
 const locationTimezone = document.getElementById("location-timezome");
 const temperatureDegree = document.getElementById("degree");
 const tempDescription = document.getElementById("temperature-description");
@@ -16,7 +14,7 @@ window.addEventListener('load',()=>{
         navigator.geolocation.getCurrentPosition(position =>{
             longitude = position.coords.longitude;
             latitude = position.coords.latitude;
-            const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${my_key}`
+            const api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=c15989a079627f1b591eab3befa75ed8`
             fetch(api).then((response)=>{
                 if(response.status === 200){
                     return response.json();
