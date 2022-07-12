@@ -26,12 +26,12 @@ window.addEventListener('load',()=>{
             }).then((data)=>{
                 const {temp,feels_like,temp_max,temp_min} = data.main;
                 locationTimezone.textContent = data.name;
-                temperatureDegree.textContent = temp-273.15;
+                let temps = `${temp-273.15.toFixed(2)}`;
+                temperatureDegree.textContent = temps.substring(0,5);
                 tempDescription.textContent =  data.weather[0].description.toUpperCase();
-                feelsLike.textContent = "Feels Like: " + feels_like + " C";
-                tempMin.innerText = `Min Temp : ${temp_min-273.15} C`;
-                tempMax.innerText = `Max Temp ${temp_max-273.15} C`;
-
+                feelsLike.textContent = "Feels Like: " + `${(feels_like-273.15).toFixed(2)}`.substring(0,5) + " C";
+                tempMin.innerText = "Min Temp: " + `${(temp_min-273.15).toFixed(2)}`.substring(0,5) + " C";
+                tempMax.innerText = "Max Temp: " + `${(temp_max-273.15).toFixed(2)}`.substring(0,5) + " C";
             }).catch((err)=>{
                 window.alert("Unable to fetch data!!");
             })
